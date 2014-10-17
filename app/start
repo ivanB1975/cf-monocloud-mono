@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+export PATH="$PATH:/app/mono/bin"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/app/mono/lib"
+export MONO_IOMAP=all
+
+mono *.exe

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+# fail fast
+set -e
+
+MONO_VERSION="3.10.0"
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+BUILDPACK_DIR=`cd $(dirname $0); cd ..; pwd`
+
+# Mono SSL Store
+cp -r ${BUILDPACK_DIR}/.config ${BUILD_DIR}/.
+
+# Mono Default Profile
+cp -n ${BUILDPACK_DIR}/.profile.d/* ${BUILD_DIR}/.profile.d/
+
+# Mono Binaries
+mkdir -p ${BUILD_DIR}/app
+tar -xzf ${BUILDPACK_DIR}/app/mono-${MONO_VERSION}.tar.gz -C ${BUILD_DIR}/app
+
+# Start Script
+cp ${BUILDPACK_DIR}/app/start ${BUILD_DIR}/app/start
