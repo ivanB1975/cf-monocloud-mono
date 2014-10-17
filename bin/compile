@@ -11,19 +11,19 @@ CACHE_DIR=$2
 BUILDPACK_DIR=`cd $(dirname $0); cd ..; pwd`
 
 # Mono SSL Store
-echo Installing Mono SSL Storae
+echo Copy Mono SSL Storae
 cp -r ${BUILDPACK_DIR}/.config ${BUILD_DIR}/.
 
 # Mono Default Profile
-echo Installing Mono Default Profile
+echo Copy Mono Default Profile
 mkdir -p ${BUILD_DIR}/.profile.d
 cp -n ${BUILDPACK_DIR}/.profile.d/* ${BUILD_DIR}/.profile.d/
 
 # Mono Binaries
-echo Extract Mono Cloud
+echo Extract Mono
 mkdir -p ${BUILD_DIR}/app
 tar -xzf ${BUILDPACK_DIR}/app/mono-${MONO_VERSION}.tar.gz -C ${BUILD_DIR}/app
 
 # Start Script
-echo Copy Start Script
+echo Copy Start
 cp ${BUILDPACK_DIR}/app/start ${BUILD_DIR}/app/start
