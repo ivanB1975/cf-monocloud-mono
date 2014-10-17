@@ -14,6 +14,7 @@ BUILDPACK_DIR=`cd $(dirname $0); cd ..; pwd`
 cp -r ${BUILDPACK_DIR}/.config ${BUILD_DIR}/.
 
 # Mono Default Profile
+mkdir -p ${BUILD_DIR}/.profile.d
 cp -n ${BUILDPACK_DIR}/.profile.d/* ${BUILD_DIR}/.profile.d/
 
 # Mono Binaries
