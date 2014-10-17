@@ -2,7 +2,5 @@
 pack_dir=ARGV[0]
 home=ENV['HOME']
 
-echo Provide Start Info
-
 puts "default_process_types:"
 puts "  web: app/start"
